@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="javascripts/angularMod.js"></script>
+  </head>
+  <body ng-app="myApp" ng-controller="mainCtrl">
+
+    <div class="row">
+    	<div class="col-md-6 col-offset-md-2">
+    		<form ng-submit="getInfo()" class="form-group">
+	    		<input class="form-control" placeholder="Enter Image URL" type="text" ng-model="url"></input>
+	    		<input class="form-control" placeholder="Enter Image Description" type="text" ng-model="description"></input>
+	    		<button class="btn btn-default" type="submit">Submit</button>
+	    	</form>
+    	</div>
+    	<div class="col-md-6">
+    		<ul>
+    			<li ng-repeat="images in myImages">
+    				<img width="100%" ng-src="{{ images.url }}" />
+    				<h2>{{ images.description }}</h2>
+    			</li>
+    		</ul>
+    	</div>
+    </div>
+  </body>
+</html>
